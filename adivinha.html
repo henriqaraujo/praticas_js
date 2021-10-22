@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Input com button</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <h3>Input com button</h3>
+    <big>Teste teste</big>
+    <hr>Teste teste</hr>
+
+    <input placeholder="Digite um número">
+
+    <button>Inserir</button>
+</body>
+
+<script>
+    var input = document.querySelector("input");
+    var button = document.querySelector("button");
+    var segredo = [1, 2, 3];
+    input.focus();
+
+    function verifica() {
+
+        var achou = false;
+        for (var posicaoArray = 0; posicaoArray < segredo.length; posicaoArray++) {
+            if (input.value == segredo[posicaoArray]) {
+                achou == true;
+                alert("Você acertou")
+                break;
+            } else {
+                achou == false;
+                alert("Você errou!!")
+
+            }
+        }
+
+        input.value = "";
+        input.focus();
+    }
+
+    button.onclick = verifica;
+</script>
+
+</html>
