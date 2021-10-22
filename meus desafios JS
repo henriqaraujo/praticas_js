@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>2 em 2</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <h3>2 em 2</h3>
+    <big>Teste teste</big>
+    <hr>Teste teste</hr>
+</body>
+<Script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostraTexto(texto) {
+        document.write(texto);
+        pulaLinha()
+    }
+
+    var contador = 2
+
+    while (contador <= 100) {
+        mostraTexto(contador)
+        contador = contador + 2
+    }
+
+    mostraTexto(contador)
+</Script>
+
+</html>
