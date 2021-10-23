@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Mudando cor da bolinha</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <h3>Mudando cor da bolinha selecionando no input</h3>
+    <!--
+    <big>Teste teste</big>
+    <hr>Teste teste</hr>-->
+
+    <canvas width="600" height="400"></canvas>
+    <br>
+    <p>Selecione uma cor:</p>
+    <input type='color'>
+</body>
+
+<script>
+    var inputCor = document.querySelector('input');
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+
+    pincel.fillStyle = 'Grey';
+    pincel.fillRect(0, 0, 600, 400);
+    var desenha = false;
+
+    //O Parametro (EVENTO) é passado pelo proprio navegador que captura o evento do ONMOUSE.
+    function desenhaCirculo(evento) {
+        if (desenha) {
+            var x = evento.pageX - tela.offsetLeft;
+            var y = evento.pageY - tela.offsetTop;
+            //Pegue a cor que esta no input
+            pincel.fillStyle = inputCor.value;
+            //Ponto de partida da bolinha.
+            pincel.beginPath();
+            pincel.arc(x, y, 10, 0, 2 * 3.14);
+            //Pinte a bolinha.
+            pincel.fill();
+        }
+    }
+
+    //Captura o movimento do mouse.
+    tela.onmousemove = desenhaCirculo;
+
+    //Enquanto o botão do mouse(ESQUERDO) estiver pressionado desenhe.
+    tela.onmousedown = function() {
+        desenha = true
+    }
+
+    //Quando o botão do mouse(ESQUERDO) for solto pare de desenhar.
+    tela.onmouseup = function() {
+        desenha = false
+    }
+</script>
+
+</html>
