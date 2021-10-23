@@ -38,6 +38,7 @@
         }
     }
 
+    //Evento para capturar movimento do mouse.
     tela.onmousemove = desenhaCirculo;
 
     function habilitaDesenho() {
@@ -50,8 +51,11 @@
         desenha = false;
     }
 
+
+    //Para capturar o clique do mouse
     tela.onmousedown = habilitaDesenho;
 
+    //Para capturar o quando o clique é solto
     tela.onmouseup = desabilitaDesenha;
 </script>
 
