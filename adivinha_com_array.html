@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Input com button</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <h3>Input com button</h3>
+    <big>Teste teste</big>
+    <hr>Teste teste</hr>
+
+    <input placeholder="Digite um número">
+
+    <button>Inserir</button>
+</body>
+
+<script>
+    var segredo = [2, 3, 4];
+    var input = document.querySelector("input");
+    input.focus();
+
+    function verifica() {
+
+        //FOR -> Variavel 0, pergunto se a posição é menor que segredo, se sim acrescenta +1 posição
+
+        //posicao < segredo.length -> A posicao vai repetir a ação de acordo com a quantidade de itens que 
+        //tem dentro da array segredo, se tiver 5 itens, irá repetir 5 vezes. Os número não tem relação, ele percorre
+        //de acordo com quantos itens a array tem.
+        for (var posicao = 0; posicao < segredo.length; posicao++) {
+
+            var achou = false;
+
+            //IF -> O valor que esta dentro do INPUT é igual o valor que esta dentro da variavel SEGREDO?
+            //Segredo[posicao] -> Na posicao 0 da array segredo contem o número 2?, na posição 2 da array segredo contem o número 4?
+            if (input.value == segredo[posicao]) {
+                alert('você acertou')
+                achou == true
+
+                //Se a opção for verdade PARE.
+                break;
+            }
+            if (achou == false) {
+                alert("VOCÊ ERROU!!!!");
+            }
+
+        }
+
+
+        //Deixe o input em branco
+        input.value = "";
+        //ao terminar a execução da função, cursor volta para o input
+        input.focus();
+    }
+    var button = document.querySelector("button")
+
+    //Ao clicar no button chama a função verifica.
+    button.onclick = verifica;
+</script>
+
+</html>
